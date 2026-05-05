@@ -24,12 +24,12 @@ geography: >
 
 stats:
   - label: Population
-    value: "26,527"
+    value: '26,527'
     sublabel: Population (2025 Census)
     icon: Users
 
   - label: Barangays
-    value: "20"
+    value: '20'
     sublabel: Administrative divisions
     asOf: As of 2025
     icon: MapPin

@@ -1,0 +1,241 @@
+- slug: municipal-mayor
+  office_name: MUNICIPAL MAYOR
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: KATRINA MAE E. SUAN
+    contact: '0917-324-5821'
+    email: null
+
+- slug: public-employment-service-office
+  office_name: PESO MANAGER
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: LOVELY MAY L. JAVINES
+    contact: '0929-435-9454'
+    email: null
+
+- slug: municipal-vice-mayor
+  office_name: MUNICIPAL VICE MAYOR
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: CHRISTIAN G. LAO
+    contact: '0921-615-7109'
+    email: null
+
+- slug: sb-secretary
+  office_name: SB SECRETARY
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: ALICE C. ARCE
+    contact: '0929-714-7923'
+    email: null
+
+- slug: municipal-planning-and-development-office
+  office_name: MUNICIPAL PLANNING AND DEVELOPMENT OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: MILA G. SABAYO
+    contact: '0947-517-8452'
+    email: null
+
+- slug: local-civil-registry-office
+  office_name: LOCAL CIVIL REGISTRAR'S
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: PAOLA GRACE H. LACSAMANA
+    contact: '0995-074-0903'
+    email: null
+
+- slug: municipal-budget-office
+  office_name: MUNICIPAL BUDGET OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: CIPRIANO G. GARDOQUE
+    contact: '0959-362-9328'
+    email: null
+
+- slug: municipal-accounting-office
+  office_name: MUNICIPAL ACCOUNTING OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: IMEE E. ESPONILLA
+    contact: '0920-345-8519'
+    email: null
+
+- slug: municipal-treasurers-office
+  office_name: MUNICIPAL TREASURER'S OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: CATALINA O. GABAD
+    contact: '0926-047-3303'
+    email: null
+
+- slug: municipal-assessors-office
+  office_name: MUNICIPAL ASSESSOR'S OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: VAL JULUIS R. CESAR - OIC
+    contact: '0977-660-7974'
+    email: null
+
+- slug: municipal-health-office
+  office_name: MUNICIPAL HEALTH OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: DAISY F. ABASOLO
+    contact: '0915-058-3066'
+    email: null
+
+- slug: municipal-social-welfare-development-office
+  office_name: MUNICIPAL SOCIAL WELFARE AND DEVELOPMENT OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: LANY S. CASTRO
+    contact: '0917-704-0680'
+    email: null
+
+- slug: municipal-agriculture-office
+  office_name: MUNICIPAL AGRICULTURE OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: JUDY P. MORADO
+    contact: '0916-916-8960'
+    email: null
+
+- slug: municipal-engineering-office
+  office_name: MUNICIPAL ENGINEERING OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: CARLO T. OMBROG - OIC
+    contact: '0945-4503-4847'
+    email: null
+
+- slug: municipal-human-resource-management-office
+  office_name: HUMAN RESOURCE AND MANAGEMENT OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: RACHEL M. PORNELOS - OIC
+    contact: '0935-635-6229'
+    email: null
+
+- slug: municipal-mdrrmo-office
+  office_name: MUNICIPAL DISASTER RISK REDUCTION MANAGEMENT OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: ALBERTO G. CABACANG
+    contact: '0951-616-1397'
+    email: null
+
+- slug: municipal-tourism-office
+  office_name: MUNICIPAL TOURISM OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: BEVY IVY S. NALDA
+    contact: '0915-480-6538'
+    email: null
+
+- slug: municipal-environment-and-natural-resources-office
+  office_name: MUNICIPAL ENVIRONMENT AND NATURAL RESOURCES OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: ROY G. PORNELOS
+    contact: '0948-803-5959'
+    email: null
+
+- slug: municipal-nutrition-office
+  office_name: MUNICIPAL NUTRITION ACTION OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: ANTONETE JE-ANN F. CABAHUG - OIC
+    contact: '0915-074-5420'
+    email: null
+
+- slug: local-youth-and-development-office
+  office_name: LOCAL YOUTH DEVELOPMENT OFFICE
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: KIM O. PUASO
+    contact: '0917-675-0038'
+    email: null
+
+- slug: municipal-information-officer
+  office_name: MUNICIPAL INFORMATION OFFICER
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: ART WENSO G. TAN - DESIGNATE
+    contact: '0977-691-9160'
+    email: null
+
+- slug: adh-admin
+  office_name: ADH ADMIN
+  address: null
+  trunkline: null
+  website: null
+  email: null
+  department_head:
+    name: JEFFERSON J. JAMORALIN
+    contact: '0917-166-7765'
+    email: null

@@ -89,6 +89,13 @@
   --color-gray-800: #343a40;
   --color-gray-900: #212529;
 
+  --color-primary-magenta: #ce1877;
+  --color-gradient-purple: #7e2989;
+  --color-dark-navy: #183d7c;
+  --color-medium-blue: #357cbb;
+  --color-cyan-teal: #56c3d2;
+  --color-pure-white: #ffffff;
+
   --animate-fade-in: fadeIn 0.5s ease-in-out;
   --animate-slide-in: slideIn 0.5s ease-out;
 

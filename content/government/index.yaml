@@ -1,0 +1,12 @@
+# Department Pages
+
+pages:
+  - name: 'Elected Officials'
+    slug: 'elected-officials'
+    description: 'The elected leadership of the Executive and Legislative branches, responsible for policy implementation and law-making.'
+  - name: 'Municipal Offices'
+    slug: 'municipal-offices'
+    description: 'Municipal departments and agencies responsible for specific areas of governance.'
+  - name: 'Barangays'
+    slug: 'barangays'
+    description: 'Local government units within the municipality, led by elected officials who manage community-level services and programs.'

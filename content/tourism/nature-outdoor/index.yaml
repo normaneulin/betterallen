@@ -8,7 +8,7 @@ places:
     mapsUrl: 'https://maps.app.goo.gl/4AGktifVqS2PX6DQ6'
     image: '/images/imaga-rock.jpg'
     featured: true
-  
+
   - name: 'Tarangban Peak'
     slug: 'tarangban-peak'
     description: 'A rewarding hiking destination with a breathtaking top-view panorama.'

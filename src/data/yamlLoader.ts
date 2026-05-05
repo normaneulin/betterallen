@@ -47,7 +47,12 @@ import civilRegistryIndex from '../../content/services/civil-registry/index.yaml
 import taxRevenueIndex from '../../content/services/tax-revenue/index.yaml?raw';
 import employmentIndex from '../../content/services/employment/index.yaml?raw';
 import tourismIndex from '../../content/services/tourism/index.yaml?raw';
-import legislativeIndex from '../../content/services/legislative/index.yaml?raw';
+import electedOfficialsIndex from '../../content/government/elected-officials/index.yaml?raw';
+import municipalOfficesIndex from '../../content/government/municipal-offices/index.yaml?raw';
+import barangaysIndedex from '../../content/government/barangays/index.yaml?raw';
+import governmentIndex from '../../content/government/index.yaml?raw';
+import executiveIndex from '../../content/government/elected-officials/executive/index.yaml?raw';
+import legislativeIndex from '../../content/government/elected-officials/legislative/index.yaml?raw';
 
 // Create a mapping of category slugs to their YAML content
 const categoryIndexMap: { [key: string]: string } = {
@@ -65,7 +70,13 @@ const categoryIndexMap: { [key: string]: string } = {
   'tax-revenue': taxRevenueIndex,
   employment: employmentIndex,
   tourism: tourismIndex,
+  // 'departments': departmentsIndex, // Removed to fix undefined error
+  government: governmentIndex,
+  'elected-officials': electedOfficialsIndex,
+  executive: executiveIndex,
   legislative: legislativeIndex,
+  'municipal-offices': municipalOfficesIndex,
+  barangays: barangaysIndedex,
 };
 
 // Parse the YAML content

@@ -2,7 +2,7 @@
 # This file contains all the pages/services available under the Health Services category
 
 pages:
-# RHU services
+  # RHU services
   - name: 'Get general medical consultation and basic emergency care'
     slug: 'get-general-medical-consultation-and-basic-emergency-care'
     description: 'Access outpatient consultation, minor emergency care, and medicine guidance from the Allen RHU.'
@@ -55,14 +55,14 @@ pages:
     slug: 'get-leprosy-treatment-and-follow-up-care'
     description: 'Access RHU leprosy treatment, counseling, and scheduled monitoring for recovery and continuity of care.'
 
-# MNAO services
+  # MNAO services
   - name: 'Get nutrition assessment and counseling'
     slug: 'get-nutrition-assessment-and-counseling'
     description: 'Receive nutrition evaluation and dietary counseling from the Municipal Nutrition Action Office to assess and improve your nutritional status.'
 
   - name: 'Access nutrition program materials and resources'
     slug: 'access-nutrition-program-materials-and-resources'
-    description: 'Obtain educational materials, supplements, and resources from the Municipal Nutrition Action Office to support your family''s nutrition.'
+    description: "Obtain educational materials, supplements, and resources from the Municipal Nutrition Action Office to support your family's nutrition."
 
   - name: 'Enroll in supplemental feeding programs'
     slug: 'enroll-in-supplemental-feeding-programs'

@@ -5,7 +5,7 @@
 pages:
   - name: 'Get a community tax certificate'
     slug: 'get-a-community-tax-certificate'
-    description: 'Apply for and obtain a community tax certificate from the Treasurer''s Office.'
+    description: "Apply for and obtain a community tax certificate from the Treasurer's Office."
 
   - name: 'Get an official receipt for civil registry matters'
     slug: 'get-an-official-receipt-for-civil-registry-matters'
@@ -13,11 +13,11 @@ pages:
 
   - name: 'Pay your real property tax'
     slug: 'pay-your-real-property-tax'
-    description: 'Make payments for real property taxes at the Treasurer''s Office.'
+    description: "Make payments for real property taxes at the Treasurer's Office."
 
   - name: 'Get a tax clearance or certificate'
     slug: 'get-a-tax-clearance-or-certificate'
-    description: 'Request a tax clearance certificate or tax payment certificate from the Treasurer''s Office.'
+    description: "Request a tax clearance certificate or tax payment certificate from the Treasurer's Office."
 
   - name: 'Get a tax bill or letter of delinquency'
     slug: 'get-a-tax-bill-or-letter-of-delinquency'
@@ -27,9 +27,9 @@ pages:
     slug: 'get-receipts-for-police-clearance-livestock-registration-and-other-fees'
     description: 'Obtain official receipts for police clearance fees, large cattle registration, and other municipal fees.'
 
-  - name: 'Pay your mayor''s business permit'
+  - name: "Pay your mayor's business permit"
     slug: 'pay-your-mayors-business-permit'
-    description: 'Make payments for mayor''s business permit fees at the Treasurer''s Office.'
+    description: "Make payments for mayor's business permit fees at the Treasurer's Office."
 
   - name: 'Pay market stall rental or cemetery lot lease'
     slug: 'pay-market-stall-rental-or-cemetery-lot-lease'
@@ -37,28 +37,28 @@ pages:
 
   - name: 'Process payroll and voucher payments'
     slug: 'process-payroll-and-voucher-payments'
-    description: 'Request fund disbursement, payment of payrolls, and processing of vouchers from the Treasurer''s Office.'
+    description: "Request fund disbursement, payment of payrolls, and processing of vouchers from the Treasurer's Office."
 
   - name: 'Get a certified copy of your tax declaration'
     slug: 'get-a-certified-copy-of-your-tax-declaration'
-    description: 'Request certified true copies or photocopies of your tax declaration from the Assessor''s Office.'
+    description: "Request certified true copies or photocopies of your tax declaration from the Assessor's Office."
 
   - name: 'Transfer property ownership or tax declaration'
     slug: 'transfer-property-ownership-or-tax-declaration'
-    description: 'File for transfer of ownership or update your tax declaration with the Assessor''s Office.'
+    description: "File for transfer of ownership or update your tax declaration with the Assessor's Office."
 
   - name: 'Request lot subdivision or consolidation'
     slug: 'request-lot-subdivision-or-consolidation'
-    description: 'File for subdivision or consolidation of land lots at the Assessor''s Office.'
+    description: "File for subdivision or consolidation of land lots at the Assessor's Office."
 
   - name: 'Apply for land conversion'
     slug: 'apply-for-land-conversion'
-    description: 'Submit an application for land conversion with the Assessor''s Office.'
+    description: "Submit an application for land conversion with the Assessor's Office."
 
   - name: 'Request property reclassification'
     slug: 'request-property-reclassification'
-    description: 'File for re-classification of your property with the Assessor''s Office.'
+    description: "File for re-classification of your property with the Assessor's Office."
 
   - name: 'Get a property certification from the assessor'
     slug: 'get-a-property-certification-from-the-assessor'
-    description: 'Request certifications and official documents from the Assessor''s Office regarding your property.'
+    description: "Request certifications and official documents from the Assessor's Office regarding your property."

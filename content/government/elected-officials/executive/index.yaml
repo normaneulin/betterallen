@@ -1,0 +1,29 @@
+- slug: office-of-the-mayor
+  name: Katrina Mae E. Suan
+  role: Mayor
+  office: Office of the Mayor
+  address: Municipal Hall, Allen
+  contact:
+    email: 'mayorkatsuan@gmail.com'
+    phone: '0917-324-5821'
+  website: https://www.facebook.com/katkatsuan526
+  isElected: true
+  personId: katrina-suan
+
+- slug: office-of-the-vice-mayor
+  name: Christian G. Lao
+  role: Vice Mayor
+  office: Office of the Vice Mayor
+  address: Municipal Hall, Allen
+  contact:
+    email: 'lao_christian@yahoo.com'
+    phone: '0921-615-7109'
+  website: https://www.facebook.com/christian.laolcb
+  isElected: true
+  personId: christian-lao
+# - slug: chief-of-staff
+#   name:
+#   role: Chief of Staff
+#   phone: null
+#  email: null
+#  isElected: false

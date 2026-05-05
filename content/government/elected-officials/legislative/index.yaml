@@ -1,0 +1,198 @@
+# =================
+# SANGGUNIANG BAYAN
+# =================
+- name: 'Apple P. Cajandab'
+  position: 'Councilor'
+  photo: '/public/images/officials/apple-cajandab.jpg'
+  term: '2025 - 2028'
+  contact:
+    email: 'sballennsr8@gmail.com'
+    phone: '0927-072-2552'
+  committee_chair:
+    - 'Appropriation, Budget & Finance'
+    - 'Social Welfare and Labor & Human Right'
+    - 'Women and Family'
+  committee_vice_chair:
+    - 'Tourism & Culture'
+    - 'Ways and Means'
+  committee_member:
+    - 'Agriculture, Accreditation & Cooperative'
+    - 'Barangay Affairs'
+    - 'Environment and Disaster Resiliency'
+    - 'Health and Sanitation'
+    - 'Infrastructure and Land Use'
+    - 'Justice, Good Governance, and Civil Service'
+
+- name: 'Elenita Venus B. Suan'
+  position: 'Councilor'
+  photo: '/public/images/officials/elenita-suan.jpg'
+  term: '2025 - 2028'
+  contact:
+    email: 'suan-venus0914@gmail.com'
+    phone: '0921-647-4702'
+  committee_chair:
+    - 'Agriculture, Accreditation & Cooperative'
+    - 'Health and Sanitation'
+    - 'Infrastructure and Land Use'
+    - 'Rules & Ethics and Privileges'
+    - 'Education'
+  committee_vice_chair:
+    - 'Appropriation, Budget & Finance'
+    - 'Environment and Disaster Resiliency'
+    - 'Women and Family'
+  committee_member:
+    - 'Barangay Affairs'
+    - 'Justice, Good Governance, and Civil Service'
+    - 'Social Welfare and Labor & Human Right'
+    - 'Transportation'
+
+- name: 'Alexander L. Suan'
+  position: 'Councilor'
+  photo: '/public/images/officials/alexander-suan.jpg'
+  term: '2025 - 2028'
+  contact:
+    email: 'sballennsr8@gmail.com'
+    phone: '0967-435-0111'
+  committee_chair:
+    - 'Barangay Affairs'
+    - 'Public Order, Public Safety, & Utilities'
+  committee_vice_chair:
+    - 'Infrastructure and Land Use'
+    - 'Trade, Commerce & Industry'
+    - 'Transportation'
+    - 'Youth and Sports Development'
+  committee_member:
+    - 'Health and Sanitation'
+    - 'Revision of Laws'
+    - 'Rules & Ethics and Privileges'
+    - 'Tourism & Culture'
+    - 'Women and Family'
+
+- name: 'Restie Edward Anthony T. Lim'
+  position: 'Councilor'
+  photo: '/public/images/officials/restie-lim.jpg'
+  term: '2025 - 2028'
+  contact:
+    email: 'restie883@gmail.com'
+    phone: '0956-384-5739'
+  committee_chair:
+    - 'Environment and Disaster Resiliency'
+    - 'Tourism & Culture'
+  committee_vice_chair:
+    - 'Justice, Good Governance, and Civil Service'
+    - 'Public Order, Public Safety, & Utilities'
+    - 'Agriculture, Accreditation & Cooperative'
+  committee_member:
+    - 'Appropriation, Budget & Finance'
+    - 'Revision of Laws'
+    - 'Trade, Commerce & Industry'
+    - 'Transportation'
+    - 'Ways and Means'
+    - 'Women and Family'
+    - 'Youth and Sports Development'
+
+- name: 'Ola Jowon M. Gubat'
+  position: 'Councilor'
+  photo: '/public/images/officials/ola-gubat.jpg'
+  term: '2025 - 2028'
+  contact:
+    email: 'sballennsr8@gmail.com'
+    phone: '0963-780-3482'
+  sb_role: 'Majority Leader'
+  committee_chair:
+    - 'Justice, Good Governance, and Civil Service'
+    - 'Revision of Laws'
+    - 'Ways and Means'
+  committee_vice_chair:
+    - 'Health and Sanitation'
+    - 'Social Welfare and Labor & Human Right'
+    - 'Education'
+    - 'Rules & Ethics and Privileges'
+  committee_member:
+    - 'Environment and Disaster Resiliency'
+    - 'Public Order, Public Safety, & Utilities'
+    - 'Tourism & Culture'
+    - 'Trade, Commerce & Industry'
+    - 'Youth and Sports Development'
+
+- name: 'Ronnel O. Cajandab'
+  position: 'Councilor'
+  photo: '/public/images/officials/ronnel-cajandbab.jpg'
+  term: '2025 - 2028'
+  contact:
+    email: 'sballennsr8@gmail.com'
+    phone: '0970-232-8022'
+  committee_chair:
+    - 'Trade, Commerce & Industry'
+    - 'Transportation'
+  committee_member:
+    - 'Appropriation, Budget & Finance'
+    - 'Agriculture, Accreditation & Cooperative'
+    - 'Education'
+    - 'Infrastructure and Land Use'
+    - 'Public Order, Public Safety, & Utilities'
+    - 'Rules & Ethics and Privileges'
+    - 'Social Welfare and Labor & Human Right'
+    - 'Ways and Means'
+
+- name: 'Winona Kyla S. Galaroza'
+  position: 'Councilor'
+  photo: '/public/images/officials/winona-galaroza.jpg'
+  term: '2025 - 2028'
+  contact:
+    email: 'sballennsr8@gmail.com'
+    phone: '0906-221-8100'
+  committee_chair:
+    - 'Youth and Sports Development'
+  committee_vice_chair:
+    - 'Barangay Affairs'
+    - 'Revision of Laws'
+  committee_member:
+    - 'Education'
+
+- name: 'Santos O. Lim'
+  position: 'Councilor'
+  photo: '/public/images/officials/santos-lim.jpg'
+  term: '2025 - 2028'
+  contact:
+    email: 'sonnylimnumberoe@gmail.com'
+    phone: '0977-699-3933'
+  sb_role: 'Minority Leader'
+  committee_member:
+    - 'Appropriation, Budget & Finance'
+    - 'Agriculture, Accreditation & Cooperative'
+    - 'Barangay Affairs'
+    - 'Education'
+    - 'Environment and Disaster Resiliency'
+    - 'Health and Sanitation'
+    - 'Infrastructure and Land Use'
+    - 'Justice, Good Governance, and Civil Service'
+    - 'Public Order, Public Safety, & Utilities'
+    - 'Revision of Laws'
+    - 'Rules & Ethics and Privileges'
+    - 'Social Welfare and Labor & Human Right'
+    - 'Tourism & Culture'
+    - 'Trade, Commerce & Industry'
+    - 'Transportation'
+    - 'Ways and Means'
+    - 'Women and Family'
+    - 'Youth and Sports Development'
+
+- name: 'Mark John B. Ablig'
+  position: 'Councilor'
+  photo: '/public/images/officials/mark-ablig.jpg'
+  term: '2025 - 2028'
+  contact:
+    email: 'sballennsr8@gmail.com'
+    phone: '0927-907-5732'
+  sb_role: 'Pro-Tempore'
+  # No committee chair/member assignments listed in the committee document
+
+- name: 'Arthur V. Briones'
+  position: 'Councilor'
+  photo: '/public/images/officials/arthur-briones.jpg'
+  term: '2025 - 2028'
+  contact:
+    email: 'sballennsr8@gmail.com'
+    phone: '0985-332-7012'
+  # No committee assignments listed in the committee document

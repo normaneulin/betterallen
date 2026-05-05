@@ -1,159 +1,135 @@
-import Section from '../components/ui/Section';
-import { useParams, Link } from 'react-router-dom';
+import { Link, Outlet, useLocation, Navigate } from 'react-router-dom';
+import { UsersIcon, Building2Icon, HomeIcon, ChevronRight } from 'lucide-react';
 import { Heading } from '../components/ui/Heading';
 import { Text } from '../components/ui/Text';
-import {
-  governmentCategories,
-  getCategorySubcategories,
-  type Subcategory,
-  type CategoryIndex,
-} from '../data/yamlLoader';
-import Breadcrumbs from '../components/ui/Breadcrumbs';
-import GovernmentActivitySection from '../components/home/GovernmentActivitySection';
 import SEO from '../components/SEO';
-import { Card, CardContent } from '@bettergov/kapwa/card';
-import { Banner } from '@bettergov/kapwa/banner';
-import { useState, useEffect } from 'react';
-import { resolveLucideIcon } from '../lib/utils';
+import Section from '../components/ui/Section';
+import classNames from 'classnames';
+
+const branches = [
+  {
+    title: 'Elected Officials',
+    description:
+      'The elected leadership of the Executive and Legislative branches, responsible for policy implementation and law-making.',
+    icon: UsersIcon,
+    path: '/government/elected-officials',
+    category: 'Leadership',
+  },
+  {
+    title: 'Municipal Offices',
+    description:
+      'Municipal departments and agencies responsible for specific areas of governance.',
+    icon: Building2Icon,
+    path: '/government/municipal-offices',
+    category: 'Administrative',
+  },
+  {
+    title: 'Barangays',
+    description:
+      'Local government units within the municipality, led by elected officials who manage community-level services and programs.',
+    icon: HomeIcon,
+    path: '/government/barangays',
+    category: 'Local Units',
+  },
+];
 
 const Government: React.FC = () => {
-  const { category } = useParams();
-  const [categoryIndex, setCategoryIndex] = useState<CategoryIndex>({
-    layout: 'list',
-    pages: [],
-  });
-  const [loading, setLoading] = useState(false);
-  const subcategories: Subcategory[] = categoryIndex.pages;
+  const location = useLocation();
+  const currentPath = location.pathname;
 
-  const getCategory = () => {
-    return governmentCategories.categories.find(c => c.slug === category);
-  };
-
-  const categoryData = getCategory();
-  const Icon = resolveLucideIcon(categoryData?.icon);
-
-  useEffect(() => {
-    if (category && categoryData) {
-      setLoading(true);
-      getCategorySubcategories(category)
-        .then(setCategoryIndex)
-        .catch(console.error)
-        .finally(() => setLoading(false));
-    }
-  }, [category, categoryData]);
-
-  if (!category) {
-    return (
-      <>
-        <SEO
-          title="Services"
-          description={`All services provided by the ${import.meta.env.VITE_GOVERNMENT_NAME} government. Find what you need for citizenship, business, education, and more.`}
-          keywords="government services, public services, local government, civic services"
-        />
-        <GovernmentActivitySection
-          title={`All local government services`}
-          description={`All services provided by the ${import.meta.env.VITE_GOVERNMENT_NAME} government. Find what you need for citizenship, business, education, and more.`}
-        />
-      </>
-    );
+  // FIX: Safety Redirect. If user hits exactly /government, bounce them to elected-officials
+  if (currentPath === '/government' || currentPath === '/government/') {
+    return <Navigate to="/government/elected-officials" replace />;
   }
-  if (!categoryData) {
-    return (
-      <Section className="p-3 mb-12">
-        <Breadcrumbs className="mb-8" />
-        <Banner
-          type="error"
-          title="Category not found"
-          description="The category you are looking for does not exist."
-          icon
-        />
-      </Section>
-    );
-  }
+
+  // Fallback for the environment variable to prevent TS errors if it's undefined
+  const govName = import.meta.env.VITE_GOVERNMENT_NAME || 'our municipality';
 
   return (
     <>
       <SEO
-        title={categoryData.category || category}
-        description={categoryData.description}
-        keywords={`${categoryData.category}, government services, public services, local government`}
+        title="Government"
+        description={`Access information on elected leaders, municipal departments, and the component barangays of ${govName}.`}
+        keywords="government, elected officials, municipal offices, barangays, local government"
       />
       <Section className="p-3 mb-12">
-        <Breadcrumbs className="mb-8" />
-        <Icon className="h-8 w-8 mb-4 text-primary-600 rounded-md" />
-        <Heading>{categoryData.category || category}</Heading>
-        <Text className="text-gray-600 mb-6">{categoryData.description}</Text>
-
-        {loading ? (
-          <div className="flex justify-center items-center p-8">
-            <Text>Loading services...</Text>
-          </div>
-        ) : (
-          <>
-            {categoryIndex.title && (
-              <Heading level={3}>{categoryIndex.title}</Heading>
-            )}
-            {categoryIndex.description && (
-              <Text className="text-gray-600 mb-4">
-                {categoryIndex.description}
-              </Text>
-            )}
-            {categoryIndex.layout === 'grid' ? (
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {subcategories.map(subcategory => (
-                  <Link
-                    key={subcategory.slug}
-                    to={`/government/${category}/${subcategory.slug}`}
-                  >
-                    <Card
-                      hoverable
-                      className="h-full border-t-4 border-primary-500"
+        <Heading level={1} className="mb-2">
+          Government
+        </Heading>
+        <Text className="mb-8 text-gray-600">
+          Access information on elected leaders, municipal departments, and the
+          component barangays of {govName}.
+        </Text>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {branches.map(branch => {
+            const isActive = currentPath.startsWith(branch.path);
+            const Icon = branch.icon;
+            return (
+              <Link
+                key={branch.path}
+                to={branch.path}
+                className={classNames(
+                  'group relative flex min-h-[160px] flex-col justify-between rounded-2xl border-2 p-6 transition-all duration-300',
+                  isActive
+                    ? 'bg-primary-100 border-primary-500 shadow-lg text-primary-900'
+                    : 'hover:border-primary-500 border-gray-200 bg-white text-gray-900 shadow-sm hover:shadow-md'
+                )}
+                state={{ scrollToContent: true }}
+              >
+                <div>
+                  <div className="mb-4 flex items-center justify-between">
+                    <div
+                      className={classNames(
+                        'rounded-xl p-2.5 shadow-sm transition-colors',
+                        isActive
+                          ? 'bg-white/20 text-primary-900'
+                          : 'bg-primary-50 text-primary-600 border-primary-500'
+                      )}
                     >
-                      <CardContent>
-                        <h4 className="text-lg font-medium text-gray-900">
-                          {subcategory.name}
-                        </h4>
-                        {subcategory.description && (
-                          <p className="mt-2 text-sm text-gray-600">
-                            {subcategory.description}
-                          </p>
-                        )}
-                        <span className="inline-block px-2 py-1 mt-2 text-xs font-medium rounded-sm bg-gray-100 text-gray-800">
-                          {categoryData.category || category}
-                        </span>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            ) : (
-              <div className="space-y-4">
-                {subcategories.map(subcategory => (
-                  <Link
-                    key={subcategory.slug}
-                    to={`/government/${category}/${subcategory.slug}`}
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <p
+                      className={classNames(
+                        'text-[10px] font-bold tracking-[0.2em] uppercase',
+                        isActive ? 'text-primary-900' : 'text-gray-400'
+                      )}
+                    >
+                      {branch.category}
+                    </p>
+                  </div>
+                  <h3
+                    className={classNames(
+                      'text-xl leading-tight font-extrabold tracking-tight',
+                      isActive ? 'text-primary-900' : 'text-gray-900'
+                    )}
                   >
-                    <Card hoverable className="mb-4">
-                      <CardContent>
-                        <h4 className="text-lg font-medium text-gray-900">
-                          {subcategory.name}
-                        </h4>
-                        {subcategory.description && (
-                          <p className="mt-2 text-sm text-gray-600">
-                            {subcategory.description}
-                          </p>
-                        )}
-                        <span className="inline-block px-2 py-1 mt-2 text-xs font-medium rounded-sm bg-gray-100 text-gray-800">
-                          {categoryData.category || category}
-                        </span>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </>
-        )}
+                    {branch.title}
+                  </h3>
+                </div>
+                <div className="mt-6 flex items-center justify-between">
+                  <p
+                    className={classNames(
+                      'line-clamp-2 pr-6 text-xs leading-relaxed font-medium',
+                      isActive ? 'text-primary-900' : 'text-gray-500'
+                    )}
+                  >
+                    {branch.description}
+                  </p>
+                  <ChevronRight
+                    className={classNames(
+                      'h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1',
+                      isActive ? 'text-primary-900' : 'text-gray-400'
+                    )}
+                  />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+        {/* Nested content area for subroutes */}
+        <div className="mt-10">
+          <Outlet />
+        </div>
       </Section>
     </>
   );

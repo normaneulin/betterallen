@@ -8,7 +8,7 @@ places:
     image: '/images/caba.jpg'
     mapsUrl: 'https://maps.app.goo.gl/pq4zygcsmtvFeb98A'
     featured: true
-  
+
   # Birmingham as resort than lodging
   - name: 'Birmingham Allen Resort'
     slug: 'birmingham-hotel'
@@ -31,7 +31,7 @@ places:
     mapsUrl: 'https://maps.app.goo.gl/D3n23Vnzn8SCnw356'
     contact: '0929 293 9152'
     socialUrl: 'https://www.facebook.com/profile.php?id=61559256478311'
-  
+
   - name: 'Domina Andrea Beach Club'
     slug: 'domina-andrea-beach-club'
     description: 'A tropical beach club offering a serene paradise escape along the Northern Samar coast.'
@@ -52,7 +52,7 @@ places:
     image: '/images/imaga-rest-house.jpg'
     mapsUrl: 'https://maps.app.goo.gl/gQ5C3c3MXMJCUhZZ6'
     socialUrl: 'https://www.facebook.com/profile.php?id=100085073379387'
-  
+
   - name: Ba’ Tonying Beach Resort
     slug: ba-tonying-beach-resort
     description: A private waterfront resort featuring iconic sunsets, scenic rock outcrops, and delicious home-cooked meals.
@@ -62,7 +62,7 @@ places:
     image: '/images/ba-tonying.jpg'
     mapsUrl: 'https://maps.app.goo.gl/Ld6UKkTgu9mN1ZbPA'
     socialUrl: 'https://www.facebook.com/profile.php?id=100089671098646'
-  
+
   - name: Bantayan Resort
     slug: bantayan-resort
     description: A raw, untouched clifftop retreat where dramatic rock formations meet the sea.
@@ -71,4 +71,3 @@ places:
     categoryColor: 'bg-sky-100 text-sky-700'
     image: '/images/bantayan.jpg'
     mapsUrl: 'https://maps.app.goo.gl/6v6jvhzWCgameMoT7'
-

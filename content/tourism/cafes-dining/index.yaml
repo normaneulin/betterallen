@@ -39,9 +39,9 @@ places:
     contact: '0912 236 5864'
     mapsUrl: 'https://maps.app.goo.gl/EhjHaTvLFTtfvTqw5'
     socialUrl: 'https://www.facebook.com/p/Marias-Kitchen-100063728483159/'
-  
+
   - name: "Edward's Hill Cafe"
-    slug: "edwards-hill"
+    slug: 'edwards-hill'
     description: 'A hilltop café worth the climb, offering scenic views and a relaxed escape.'
     barangay: 'Lipata'
     category: 'Cafes & Dining'
@@ -50,9 +50,9 @@ places:
     contact: '0977 699 3933'
     mapsUrl: 'https://maps.app.goo.gl/m6YD516mVuB1sFCr5'
     socialUrl: 'https://www.facebook.com/profile.php?id=61559433273582'
-  
-  - name: "Rams Food Haus"
-    slug: "rams-food-haus"
+
+  - name: 'Rams Food Haus'
+    slug: 'rams-food-haus'
     description: 'A roadside grill house serving affordable and yummy grilled treats, perfect for a quick stop.'
     barangay: 'Kinabranan II'
     category: 'Cafes & Dining'
@@ -60,9 +60,9 @@ places:
     contact: '0977 801 2626'
     image: '/images/rams-food-haus.jpg'
     mapsUrl: 'https://maps.app.goo.gl/CHWJK36qKQxZEgPL9'
-  
-  - name: "Hungry Hurry Sizzling Hub"
-    slug: "hungry-hurry"
+
+  - name: 'Hungry Hurry Sizzling Hub'
+    slug: 'hungry-hurry'
     description: 'An affordable sizzling hub serving up hot sisig, tapa, and more.'
     barangay: 'Kinabranan II'
     category: 'Cafes & Dining'
@@ -70,9 +70,9 @@ places:
     image: '/images/hungry-hurry.jpg'
     mapsUrl: 'https://maps.app.goo.gl/CHWJK36qKQxZEgPL9'
     socialUrl: 'https://www.facebook.com/profile.php?id=100063921829727'
-  
+
   - name: "Sarah's Restaurant and KTV"
-    slug: "sarahs"
+    slug: 'sarahs'
     description: 'A lively restaurant and KTV spot for good food and fun-filled singing nights with friends and family.'
     barangay: 'Sabang II'
     category: 'Cafes & Dining'
@@ -81,9 +81,9 @@ places:
     contact: '0930 304 9588'
     mapsUrl: 'https://maps.app.goo.gl/d3LnNujiT9PaLy9r5'
     socialUrl: 'https://www.facebook.com/sarahsrestaurantandktv'
-  
+
   - name: "N'Grande Sea Garden Resto"
-    slug: "ngrande"
+    slug: 'ngrande'
     description: 'A seaside garden restaurant known for stunning sea views and the best halo-halo in town.'
     barangay: 'Tasvilla'
     category: 'Cafes & Dining'
@@ -92,9 +92,9 @@ places:
     contact: '0962 316 4190'
     mapsUrl: 'https://maps.app.goo.gl/vRzmfsTGU5pMwehV9'
     socialUrl: 'https://www.facebook.com/NGrandeSeaGardenResto'
-  
-  - name: "Reap Rap Bistro"
-    slug: "reaprap"
+
+  - name: 'Reap Rap Bistro'
+    slug: 'reaprap'
     description: 'A top-view bistro and disco spot offering panoramic views, good food, and a lively night scene.'
     barangay: 'Sabang I'
     category: 'Cafes & Dining'
@@ -103,9 +103,9 @@ places:
     contact: '0962 316 4190'
     mapsUrl: 'https://maps.app.goo.gl/8WPhezTXVHdR2HMZ6'
     socialUrl: 'https://www.facebook.com/NGrandeSeaGardenResto'
-  
-  - name: "Sigad Billiards and Resto"
-    slug: "sigad"
+
+  - name: 'Sigad Billiards and Resto'
+    slug: 'sigad'
     description: 'A premier resto with top-tier billiards, Filipino-Chinese cuisine, and live music for a full night out.'
     barangay: 'Kinabranan II'
     category: 'Cafes & Dining'
