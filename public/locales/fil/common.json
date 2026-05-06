@@ -52,8 +52,8 @@
     }
   },
   "governmentActivity": {
-    "title": "Aktibidad ng Pamahalaan",
-    "description": "Manatiling updated sa pinakabagong mga aktibidad at anunsyo ng pamahalaan."
+    "title": "Mga Pinuno ng Pamahalaan",
+    "description": "Alamin ang mga lingkod-bayan na namumuno sa Munisipalidad."
   },
   "weather": {
     "title": "Mga Update sa Panahon"
