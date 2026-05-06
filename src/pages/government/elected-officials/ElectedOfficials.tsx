@@ -11,6 +11,8 @@ import {
   ChevronLeft,
   GlobeIcon,
   UsersIcon,
+  Phone,
+  Mail
 } from 'lucide-react';
 import yaml from 'js-yaml';
 import { Card, CardContent } from '@bettergov/kapwa/card';
@@ -102,28 +104,10 @@ function ElectedLeaderCard({ leader }: { leader: ExecutiveOfficial }) {
         {(leader.contact?.email || leader.contact?.phone) && (
           <div className="border-t border-gray-100 w-full pt-5 mt-2">
             <div className="flex flex-col gap-3 text-left">
-              {leader.contact?.email && (
-                <div className="flex items-center gap-3">
-                  <div className="bg-gray-50 p-2 rounded-lg text-gray-400 border border-gray-100">
-                    <Briefcase className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold tracking-widest uppercase text-gray-400">
-                      Email Address
-                    </p>
-                    <a
-                      href={`mailto:${leader.contact.email}`}
-                      className="text-sm font-medium text-gray-900 hover:text-primary-600"
-                    >
-                      {leader.contact.email}
-                    </a>
-                  </div>
-                </div>
-              )}
               {leader.contact?.phone && (
                 <div className="flex items-center gap-3">
                   <div className="bg-gray-50 p-2 rounded-lg text-gray-400 border border-gray-100">
-                    <Briefcase className="h-4 w-4" />
+                    <Phone className="h-4 w-4" />
                   </div>
                   <div>
                     <p className="text-[10px] font-bold tracking-widest uppercase text-gray-400">
@@ -134,6 +118,24 @@ function ElectedLeaderCard({ leader }: { leader: ExecutiveOfficial }) {
                       className="text-sm font-medium text-gray-900 hover:text-primary-600"
                     >
                       {leader.contact.phone}
+                    </a>
+                  </div>
+                </div>
+              )}
+              {leader.contact?.email && (
+                <div className="flex items-center gap-3">
+                  <div className="bg-gray-50 p-2 rounded-lg text-gray-400 border border-gray-100">
+                    <Mail className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold tracking-widest uppercase text-gray-400">
+                      Email Address
+                    </p>
+                    <a
+                      href={`mailto:${leader.contact.email}`}
+                      className="text-sm font-medium text-gray-900 hover:text-primary-600"
+                    >
+                      {leader.contact.email}
                     </a>
                   </div>
                 </div>
@@ -197,21 +199,28 @@ function CouncilMemberCard({ member }: { member: CouncilMember }) {
           <div className="flex-1" />
         )}
 
-        {/* Row 3: Social footer (Checks if contact/email exists if website isn't used) */}
-        {member.contact?.email && (
-          <div className="border-t border-gray-100 mt-auto flex items-center justify-between pt-4">
-            <span className="text-gray-400 text-[10px] font-bold tracking-wider uppercase">
-              Contact
-            </span>
-            <a
-              href={`mailto:${member.contact.email}`}
-              className="hover:border-primary-500 hover:text-primary-600 text-gray-600 bg-gray-50 flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-1.5 shadow-sm transition-all"
-            >
-              <span className="text-[10px] font-bold tracking-wider uppercase">
-                Email
-              </span>
-              <GlobeIcon className="h-3.5 w-3.5" />
-            </a>
+        {/* Row 3: Contact Info */}
+        {(member.contact?.phone || member.contact?.email) && (
+          <div className="border-t border-gray-100 mt-auto pt-4 flex flex-col gap-2.5">
+            {member.contact?.phone && (
+              <a 
+                href={`tel:${member.contact.phone}`} 
+                className="flex items-center gap-2 text-[10px] font-medium text-gray-900 hover:text-primary-600 transition-colors group"
+              >
+                <Phone className="h-3 w-3 text-gray-400 group-hover:text-primary-500 transition-colors" />
+                {member.contact.phone}
+              </a>
+            )}
+            
+            {member.contact?.email && (
+              <a
+                href={`mailto:${member.contact.email}`}
+                className="flex items-center gap-2 text-[10px] text-gray-500 hover:text-primary-600 transition-colors group"
+              >
+                <Mail className="h-3 w-3 text-gray-400 group-hover:text-primary-500 transition-colors" />
+                <span className="truncate">{member.contact.email}</span>
+              </a>
+            )}
           </div>
         )}
       </CardContent>
