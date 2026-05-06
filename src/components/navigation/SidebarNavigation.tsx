@@ -72,7 +72,7 @@ export function SidebarItem({
   const active = isActive ?? (path ? location.pathname === path : false);
 
   const baseStyles = `
-    w-full flex items-start gap-3 px-3 py-2 rounded-md text-sm transition-all group
+    w-full flex items-start gap-3 px-3 py-2 rounded-md text-[10px] transition-all group
     border-l-2 
     ${
       active
@@ -85,14 +85,14 @@ export function SidebarItem({
     <>
       {Icon && (
         <Icon
-          className={`mt-0.5 h-4 w-4 shrink-0 ${active ? 'text-kapwa-text-brand' : 'group-hover:text-kapwa-text-on-disabled text-kapwa-text-disabled'}`}
+          className={`h-4 w-4 shrink-0 ${active ? 'text-kapwa-text-brand' : 'group-hover:text-kapwa-text-on-disabled text-kapwa-text-disabled'}`}
         />
       )}
       <div className="flex flex-col overflow-hidden text-left">
         <span className="truncate">{label}</span>
         {description && (
           <span
-            className={`text-[11px] leading-tight ${active ? 'text-kapwa-text-brand/70' : 'text-kapwa-text-disabled'}`}
+            className={`text-[10px] leading-tight ${active ? 'text-kapwa-text-brand/70' : 'text-kapwa-text-disabled'}`}
           >
             {description}
           </span>

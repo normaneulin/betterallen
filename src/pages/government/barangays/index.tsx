@@ -39,7 +39,6 @@ export default function BarangaysIndex() {
         const text = await resp.text();
         const parsed = yaml.load(text);
         
-        // Clean, TypeScript-safe parsing: your YAML is just a direct array!
         if (Array.isArray(parsed)) {
           setBarangays(parsed as Barangay[]);
         } else {
@@ -65,7 +64,7 @@ export default function BarangaysIndex() {
   }, [barangays, search]);
 
   return (
-    <>
+    <div className="mx-auto max-w-7xl px-4 py-6 md:px-8 lg:px-12">
       <PageHero
         title='Local Barangays'
         description={`${filtered.length} component barangays of the municipality.`}
@@ -85,7 +84,7 @@ export default function BarangaysIndex() {
       ) : filtered.length === 0 ? (
         <Banner type="info" description="No barangays found." />
       ) : (
-        <div className='grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3'>
+        <div className='mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3'>
           {filtered.map(brgy => {
             const punong = brgy.officials?.find(o =>
               o.role && o.role.includes('Punong Barangay')
@@ -100,9 +99,7 @@ export default function BarangaysIndex() {
               >
                 <div className="relative flex h-full flex-col rounded-xl bg-gray-200 p-[2px] shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5">
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#357CBB] to-[#CE1877] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <Card
-                    className='relative z-10 border-transparent flex h-full flex-col rounded-[10px] bg-white'
-                  >
+                  <Card className='relative z-10 border-transparent flex h-full flex-col rounded-[10px] bg-white'>
                     <CardContent className='flex h-full flex-col space-y-4 p-4'>
                       <div className='flex items-start gap-3'>
                         <div className='bg-kapwa-bg-surface text-kapwa-text-brand border-kapwa-border-brand group-hover:bg-kapwa-bg-brand-default group-hover:text-kapwa-text-inverse shrink-0 rounded-lg border p-2 shadow-sm transition-colors'>
@@ -159,6 +156,6 @@ export default function BarangaysIndex() {
           })}
         </div>
       )}
-    </>
+    </div>
   );
 }

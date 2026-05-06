@@ -13,17 +13,12 @@ import {
   UsersIcon,
 } from 'lucide-react';
 import yaml from 'js-yaml';
-
-// 1. Kapwa Card
 import { Card, CardContent } from '@bettergov/kapwa/card';
-
-// 2. Local Components & Data
 import SEO from '../../../components/SEO';
 import { Heading } from '../../../components/ui/Heading';
 import executiveYaml from '../../../../content/government/elected-officials/executive/index.yaml?raw';
 import legislativeYaml from '../../../../content/government/elected-officials/legislative/index.yaml?raw';
 
-// --- Helper ---
 function toTitleCase(str: string) {
   if (!str) return '';
   return str.replace(
@@ -32,7 +27,6 @@ function toTitleCase(str: string) {
   );
 }
 
-// --- Types ---
 interface ExecutiveOfficial {
   slug: string;
   name: string;
@@ -61,8 +55,6 @@ interface CouncilMember {
   committee_vice_chair?: string[];
   committee_member?: string[];
 }
-
-// --- Sub-components ---
 
 function ElectedLeaderCard({ leader }: { leader: ExecutiveOfficial }) {
   const isMayor =
@@ -227,10 +219,7 @@ function CouncilMemberCard({ member }: { member: CouncilMember }) {
   );
 }
 
-// --- Main Page ---
-
 export default function ElectedOfficials() {
-  // 1. Load Data
   const executiveList = useMemo<ExecutiveOfficial[]>(() => {
     try {
       const parsed = yaml.load(executiveYaml);

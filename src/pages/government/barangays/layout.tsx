@@ -1,10 +1,10 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import ElectedOfficialsSidebar from './components/ElectedOfficialsSidebar';
+import BarangaysSidebar from './components/BarangaysSidebar';
 
-export default function ElectedOfficialsLayout() {
+export default function BarangaysLayout() {
   const location = useLocation();
-  const isDeepPage = location.pathname !== '/government/elected-officials';
-
+  // Hide sidebar on mobile if deep page, always show on desktop
+  const isDeepPage = location.pathname !== '/government/barangays';
   return (
     <div className="flex min-h-screen flex-col md:flex-row bg-white">
       <aside
@@ -12,7 +12,7 @@ export default function ElectedOfficialsLayout() {
           isDeepPage ? 'hidden md:block' : 'block'
         }`}
       >
-        <ElectedOfficialsSidebar />
+        <BarangaysSidebar />
       </aside>
       <main className="flex-1 overflow-x-hidden">
         <Outlet />
