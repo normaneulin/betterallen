@@ -31,14 +31,14 @@
     contact: '0921-615-7109'
     email: null
 
-- slug: sb-secretary
-  office_name: SB SECRETARY
+- slug: sangguniang-bayan-secretary
+  office_name: SANGGUNIANG BAYAN SECRETARY
   address: null
   trunkline: null
   website: null
   email: null
   department_head:
-    name: ALICE C. ARCE
+    name: ALICE C. ARC
     contact: '0929-714-7923'
     email: null
 
