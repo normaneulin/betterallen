@@ -71,7 +71,7 @@ const Government: React.FC = () => {
                 key={branch.path}
                 to={branch.path}
                 className={classNames(
-                  'group relative flex min-h-[160px] flex-col justify-between rounded-2xl border-2 p- transition-all duration-300',
+                  'group relative flex min-h-[160px] flex-col justify-between rounded-2xl border-2 p-4 transition-all duration-300',
                   isActive
                     ? 'bg-primary-100 border-primary-500 shadow-lg text-primary-900'
                     : 'hover:border-primary-500 border-gray-200 bg-white text-gray-900 shadow-sm hover:shadow-md'
