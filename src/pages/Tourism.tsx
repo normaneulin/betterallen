@@ -5,6 +5,7 @@ import { Text } from '../components/ui/Text';
 import {
   tourismCategories,
   getTourismPlaces,
+  getFeaturedPlaces,
   type Place,
 } from '../data/tourismLoader';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
@@ -17,10 +18,23 @@ import TourismCard from '@/components/ui/TourismCard';
 import { MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { FiFacebook } from 'react-icons/fi';
+
+const heroImages = getFeaturedPlaces().map(p => p.image);
+
 const Tourism: React.FC = () => {
   const { category } = useParams();
   const [places, setPlaces] = useState<Place[]>([]);
   const [loading, setLoading] = useState(false);
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    if (heroImages.length < 2) return;
+    const id = setInterval(
+      () => setHeroIndex(i => (i + 1) % heroImages.length),
+      5000
+    );
+    return () => clearInterval(id);
+  }, []);
 
   const getCategory = () => {
     return tourismCategories.categories.find(c => c.slug === category);
@@ -47,43 +61,56 @@ const Tourism: React.FC = () => {
           description={`Discover the best tourist spots, accommodations, and attractions in ${import.meta.env.VITE_GOVERNMENT_NAME}. Beaches, resorts, cafes, hotels, and more.`}
           keywords="tourism, travel, beaches, resorts, hotels, dining, attractions, tourist spots"
         />
-        <Section maxWidth="full" className="bg-primary-700 text-white py-16">
-          <Heading
-            level={5}
-            className="text-primary-200 inline-flex items-center gap-2 uppercase tracking-wide font-medium -mb-6"
-          >
-            <MapPin />
-            Allen, Northern Samar
-          </Heading>
-          <Heading className="tracking-wide">Tourism</Heading>
-          <Heading level={3} className="text-primary-100 -mt-4">
-            "The Gateway of Eastern Visayas"
-          </Heading>
-          <p className="text-primary-100 md:text-xl text-base max-w-xl mb-6">
-            Discover the Gateway to the Samar Island, where stunning coastal
-            rock formations and beaches meet the warm hospitality of a vibrant
-            port town.
-          </p>
-
-          <div className="mb-6 flex gap-4">
-            <div className="px-4 py-1 font-bold bg-primary-600 border-primary-100/20 w-fit border rounded-4xl text-sm">
-              Allen yun
-            </div>
-            <div className="px-4 py-1 font-bold bg-primary-600 border-primary-100/20 w-fit border rounded-4xl text-sm">
-              Tara sa Norte!
-            </div>
-          </div>
-
-          <Link to="https://www.facebook.com/allensamartourism/" className="">
-            <Button
-              variant={'link'}
-              className="bg-white text-primary-700 text-base sm:text-lg px-6 py-6 font-semibold cursor-pointer"
+        <section className="relative overflow-hidden bg-primary-700 text-white py-16">
+          {heroImages.map((src, i) => (
+            <div
+              key={src}
+              className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+              style={{
+                backgroundImage: `url(${src})`,
+                opacity: i === heroIndex ? 1 : 0,
+              }}
+            />
+          ))}
+          <div className="absolute inset-0 bg-primary-900/65" />
+          <div className="relative z-10 max-w-full mx-auto sm:px-6 px-4">
+            <Heading
+              level={5}
+              className="text-primary-200 inline-flex items-center gap-2 uppercase tracking-wide font-medium -mb-6"
             >
-              <FiFacebook />
-              Follow @allensamartourism
-            </Button>{' '}
-          </Link>
-        </Section>
+              <MapPin />
+              Allen, Northern Samar
+            </Heading>
+            <Heading className="tracking-wide">Tourism</Heading>
+            <Heading level={3} className="text-primary-100 -mt-4">
+              "The Gateway of Eastern Visayas"
+            </Heading>
+            <p className="text-primary-100 md:text-xl text-base max-w-xl mb-6">
+              Discover the Gateway to the Samar Island, where stunning coastal
+              rock formations and beaches meet the warm hospitality of a vibrant
+              port town.
+            </p>
+
+            <div className="mb-6 flex gap-4">
+              <div className="px-4 py-1 font-bold bg-primary-600 border-primary-100/20 w-fit border rounded-4xl text-sm">
+                Allen yun
+              </div>
+              <div className="px-4 py-1 font-bold bg-primary-600 border-primary-100/20 w-fit border rounded-4xl text-sm">
+                Tara sa Norte!
+              </div>
+            </div>
+
+            <Link to="https://www.facebook.com/allensamartourism/">
+              <Button
+                variant={'link'}
+                className="bg-white text-primary-700 text-base sm:text-lg px-6 py-6 font-semibold cursor-pointer"
+              >
+                <FiFacebook />
+                Follow @allensamartourism
+              </Button>{' '}
+            </Link>
+          </div>
+        </section>
 
         <Section className="p-3 my-12">
           <Heading level={2}>Browse by Category</Heading>

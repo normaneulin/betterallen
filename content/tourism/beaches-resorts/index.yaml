@@ -7,8 +7,6 @@ places:
     categoryColor: 'bg-sky-100 text-sky-700'
     image: '/images/caba.jpg'
     mapsUrl: 'https://maps.app.goo.gl/pq4zygcsmtvFeb98A'
-    featured: true
-
   # Birmingham as resort than lodging
   - name: 'Birmingham Allen Resort'
     slug: 'birmingham-hotel'
@@ -62,6 +60,7 @@ places:
     image: '/images/ba-tonying.jpg'
     mapsUrl: 'https://maps.app.goo.gl/Ld6UKkTgu9mN1ZbPA'
     socialUrl: 'https://www.facebook.com/profile.php?id=100089671098646'
+    featured: true
 
   - name: Bantayan Resort
     slug: bantayan-resort

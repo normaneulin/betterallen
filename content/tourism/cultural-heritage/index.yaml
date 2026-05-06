@@ -7,4 +7,3 @@ places:
     categoryColor: 'bg-rose-100 text-rose-700'
     image: '/images/gabaldon.jpg'
     mapsUrl: 'https://maps.app.goo.gl/j2HRLM19esqtssXS9'
-    featured: true

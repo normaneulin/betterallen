@@ -78,3 +78,16 @@ export async function getTourismPlaces(categorySlug: string): Promise<Place[]> {
 export function isTourismCategory(slug: string): boolean {
   return slug in categoryIndexMap;
 }
+
+// Returns all places marked featured: true across all categories
+// Usage: tourism page slideshow
+export function getFeaturedPlaces(): Place[] {
+  return Object.values(categoryIndexMap).flatMap(yamlContent => {
+    try {
+      const data = yaml.load(yamlContent) as { places: Place[] };
+      return (data.places || []).filter(p => p.featured);
+    } catch {
+      return [];
+    }
+  });
+}

@@ -108,8 +108,8 @@ const SearchBar = ({
     <div className={className}>
       <div className="relative">
         {isPill ? (
-          <div className="relative rounded-full bg-white/95 shadow-sm ring-1 ring-white/30">
-            <Search className="pointer-events-none absolute left-5 top-1/2 h-6 w-6 -translate-y-1/2 text-primary-600" />
+          <div className="relative w-full rounded-full bg-white/95 shadow-sm ring-1 ring-white/30">
+            <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-primary-600" />
             <input
               type="text"
               value={searchQuery}
@@ -121,7 +121,7 @@ const SearchBar = ({
                 t('hero.search_placeholder') ||
                 'Search services...'
               }
-              className="h-14 rounded-full border-0 bg-transparent  text-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-white/40"
+              className="h-11 w-full rounded-full border-0 bg-transparent pl-11 pr-5 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-white/40"
             />
           </div>
         ) : (
