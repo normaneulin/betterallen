@@ -167,7 +167,7 @@ const AboutAllen: React.FC = () => {
                     <iframe
                       title="Allen, Northern Samar Map"
                       src="https://maps.google.com/maps?q=12.5,124.282&z=14&output=embed"
-                      className="w-full h-80 lg:h-full min-h-[300px]"
+                      className="w-full h-80 lg:h-full min-h-75"
                       loading="lazy"
                     />
                   </div>

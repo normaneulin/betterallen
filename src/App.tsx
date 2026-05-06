@@ -15,15 +15,10 @@ import AboutAllen from './pages/about/Allen';
 import AboutBetterGov from './pages/about/BetterGov';
 
 // --- ADD THESE NEW IMPORTS ---
-import ElectedOfficialsLayout from './pages/government/elected-officials/layout';
-import ElectedOfficials from './pages/government/elected-officials/index';
+import ElectedOfficials from './pages/government/elected-officials/ElectedOfficials';
 import MunicipalCommitteesPage from './pages/government/elected-officials/MunicipalCommittees';
 import MunicipalOffices from './pages/government/municipal-offices';
 
-// Add the Layout import here!
-import MunicipalOfficesLayout from './pages/government/municipal-offices/layout';
-
-import BarangaysLayout from './pages/government/barangays/layout';
 import Barangays from './pages/government/barangays';
 
 function App() {
@@ -47,26 +42,25 @@ function App() {
               <Route path="/tourism/:category" element={<Tourism />} />
               <Route path="/tourism" element={<Tourism />} />
 
-
-
               {/* --- FIXED GOVERNMENT ROUTING --- */}
               <Route path="/government" element={<Government />}>
-                
                 {/* 1. Elected Officials Branch */}
-                <Route path="elected-officials" element={<ElectedOfficialsLayout />}>
-                  <Route index element={<ElectedOfficials />} />
-                  <Route path="committees" element={<MunicipalCommitteesPage />} />
-                </Route>
+                <Route
+                  path="elected-officials"
+                  element={<ElectedOfficials />}
+                />
+                <Route
+                  path="elected-officials/committees"
+                  element={<MunicipalCommitteesPage />}
+                />
 
                 {/* 2. Municipal Offices Branch (Sidebar Layout + Content) */}
-                <Route path="municipal-offices" element={<MunicipalOfficesLayout />}>
+                <Route path="municipal-offices" element={<MunicipalOffices />}>
                   <Route index element={<MunicipalOffices />} />
                 </Route>
 
-                {/* 3. Barangays Branch - For now, just a placeholder route */}
-                <Route path="barangays" element={<BarangaysLayout />}>
-                  <Route index element={<Barangays />} />
-                </Route>
+                {/* 3. Barangays Branch */}
+                <Route path="barangays" element={<Barangays />} />
               </Route>
 
               {/* Keep this standalone route for your markdown documents */}
@@ -75,8 +69,6 @@ function App() {
                 element={<Document categoryType="government" />}
               />
               {/* --------------------------------- */}
-
-
 
               {/* Keep this standalone route for your markdown documents */}
               <Route

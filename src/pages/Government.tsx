@@ -5,6 +5,7 @@ import { Text } from '../components/ui/Text';
 import SEO from '../components/SEO';
 import Section from '../components/ui/Section';
 import classNames from 'classnames';
+import ElectedOfficialsNav from '../components/government/ElectedOfficialsNav';
 
 const branches = [
   {
@@ -36,6 +37,9 @@ const branches = [
 const Government: React.FC = () => {
   const location = useLocation();
   const currentPath = location.pathname;
+  const isElectedOfficialsRoute = currentPath.startsWith(
+    '/government/elected-officials'
+  );
 
   // FIX: Safety Redirect. If user hits exactly /government, bounce them to elected-officials
   if (currentPath === '/government' || currentPath === '/government/') {
@@ -71,7 +75,7 @@ const Government: React.FC = () => {
                 key={branch.path}
                 to={branch.path}
                 className={classNames(
-                  'group relative flex min-h-[160px] flex-col justify-between rounded-2xl border-2 p-4 transition-all duration-300',
+                  'group relative flex min-h-40 flex-col justify-between rounded-2xl border-2 p-4 transition-all duration-300',
                   isActive
                     ? 'bg-primary-100 border-primary-500 shadow-lg text-primary-900'
                     : 'hover:border-primary-500 border-gray-200 bg-white text-gray-900 shadow-sm hover:shadow-md'
@@ -168,7 +172,10 @@ const Government: React.FC = () => {
                   </div>
                   <span
                     className="text-[9px] font-bold tracking-widest uppercase text-gray-500 whitespace-nowrap select-none"
-                    style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                    style={{
+                      writingMode: 'vertical-rl',
+                      transform: 'rotate(180deg)',
+                    }}
                   >
                     {branch.title}
                   </span>
@@ -210,8 +217,14 @@ const Government: React.FC = () => {
           })}
         </div>
 
+        {isElectedOfficialsRoute && (
+          <div className="mt-6">
+            <ElectedOfficialsNav />
+          </div>
+        )}
+
         {/* Nested content area for subroutes */}
-        <div className="mt-10">
+        <div className="">
           <Outlet />
         </div>
       </Section>

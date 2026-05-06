@@ -1,42 +1,13 @@
-import { MapPinIcon, Phone, User2 } from 'lucide-react';
-import yaml from 'js-yaml';
+import { MapPinIcon, User2 } from 'lucide-react';
 import { PageHero } from '@/components/layout/PageLayouts';
 import { Card, CardContent } from '@/components/ui/Card';
 import Banner from '@/components/ui/Banner';
 import { toTitleCase } from '@/lib/stringUtils';
+import { barangays, type Barangay } from '@/data/yamlLoader';
 
-// Statically import the YAML file as raw text
-// Note: Adjust the relative path if your folder depth differs
-import barangaysYaml from '../../../../content/government/barangays/index.yaml?raw';
-
-interface Official {
-  role: string;
-  name: string | null;
-  contact: string | null;
-  email: string | null;
-}
-
-interface Barangay {
-  slug: string;
-  barangay_name: string;
-  address: string | null;
-  trunkline: string[] | null;
-  website: string | null;
-  officials: Official[] | null;
-}
-
-// Parse and sort the data statically outside the component cycle
-let parsedBarangays: Barangay[] = [];
-try {
-  const parsed = yaml.load(barangaysYaml);
-  parsedBarangays = Array.isArray(parsed) ? (parsed as Barangay[]) : [];
-} catch (e) {
-  console.warn('Failed to parse barangays YAML', e);
-}
-
-const sortedBarangays = parsedBarangays.sort((a, b) =>
-  a.barangay_name.localeCompare(b.barangay_name)
-);
+const sortedBarangays = (barangays as Barangay[])
+  .slice()
+  .sort((a, b) => a.barangay_name.localeCompare(b.barangay_name));
 
 export default function BarangaysIndex() {
   return (
@@ -51,8 +22,11 @@ export default function BarangaysIndex() {
       ) : (
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {sortedBarangays.map(brgy => {
-            const punong = brgy.officials?.find(o =>
-              o.role && o.role.includes('Punong Barangay')
+            const punong = brgy.officials?.find(
+              o => o.role && o.role.includes('Punong Barangay')
+            );
+            const skChair = brgy.officials?.find(
+              o => o.role && o.role.includes('SK Chairperson')
             );
 
             return (
@@ -70,7 +44,7 @@ export default function BarangaysIndex() {
                             brgy.barangay_name.replace('BARANGAY ', '')
                           )}
                         </h3>
-                        <p className="text-kapwa-text-disabled mt-0.5 text-[10px] font-bold tracking-widest uppercase">
+                        <p className="text-kapwa-text-support mt-0.5 text-xs font-bold tracking-widest uppercase">
                           Barangay Profile
                         </p>
                       </div>
@@ -82,27 +56,54 @@ export default function BarangaysIndex() {
                         <User2 className="h-3.5 w-3.5" />
                       </div>
                       <div className="min-w-0">
-                        <p className="text-kapwa-text-disabled mb-0.5 text-[9px] leading-none font-bold tracking-tighter uppercase">
+                        <p className="text-kapwa-text-support mb-0.5 text-[10px] leading-none font-bold tracking-tighter uppercase">
                           Punong Barangay
                         </p>
-                        <p className="text-kapwa-text-support truncate text-xs leading-tight font-bold">
-                          {punong?.name ? toTitleCase(punong.name) : 'Awaiting Data'}
+                        <p className="text-kapwa-text-support truncate text-sm leading-tight font-bold">
+                          {punong?.name
+                            ? toTitleCase(punong.name)
+                            : 'Awaiting Data'}
                         </p>
+                        {(punong?.contact || punong?.email) && (
+                          <div className="mt-1 flex flex-col gap-0.5 text-[11px] text-kapwa-text-support">
+                            {punong?.contact && (
+                              <span className="truncate">{punong.contact}</span>
+                            )}
+                            {punong?.email && (
+                              <span className="truncate">{punong.email}</span>
+                            )}
+                          </div>
+                        )}
                       </div>
                     </div>
 
-                    {/* Contact Footer */}
-                    <div className="mt-auto flex items-center gap-4 border-t border-kapwa-border-weak pt-3">
-                      {brgy.trunkline && brgy.trunkline.length > 0 ? (
-                        <div className="text-kapwa-text-disabled flex items-center gap-1.5 text-[11px] font-medium">
-                          <Phone className="text-kapwa-text-brand h-3 w-3" />
-                          <span>{brgy.trunkline[0]}</span>
-                        </div>
-                      ) : (
-                        <div className="text-kapwa-text-support text-[10px] italic">
-                          No contact listed
-                        </div>
-                      )}
+                    {/* SK Chairperson Row */}
+                    <div className="border-kapwa-border-weak bg-kapwa-bg-surface-raised/50 flex items-center gap-2 rounded-xl border px-3 py-2">
+                      <div className="border-kapwa-border-weak bg-kapwa-bg-surface text-kapwa-text-disabled shrink-0 rounded-full border p-1 shadow-sm">
+                        <User2 className="h-3.5 w-3.5" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-kapwa-text-support mb-0.5 text-[10px] leading-none font-bold tracking-tighter uppercase">
+                          SK Chairperson
+                        </p>
+                        <p className="text-kapwa-text-support truncate text-sm leading-tight font-bold">
+                          {skChair?.name
+                            ? toTitleCase(skChair.name)
+                            : 'Awaiting Data'}
+                        </p>
+                        {(skChair?.contact || skChair?.email) && (
+                          <div className="mt-1 flex flex-col gap-0.5 text-[11px] text-kapwa-text-support">
+                            {skChair?.contact && (
+                              <span className="truncate">
+                                {skChair.contact}
+                              </span>
+                            )}
+                            {skChair?.email && (
+                              <span className="truncate">{skChair.email}</span>
+                            )}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
