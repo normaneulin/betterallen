@@ -38,7 +38,7 @@ interface Committee {
 }
 
 export default function MunicipalCommitteesPage() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm] = useState('');
 
   const legislativeList = useMemo<LegislativeOfficial[]>(() => {
     try {
@@ -121,24 +121,31 @@ export default function MunicipalCommitteesPage() {
   return (
     <div className="p-4 md:p-6">
       {/* Rebuilt Page Hero & Search without missing components */}
-      <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div>
-          <div className="flex items-center gap-1.5 mb-4">
-            <Link
-              to="/government/elected-officials"
-              className="text-primary-600 hover:text-primary-800 flex items-center gap-1 text-xs font-bold tracking-widest uppercase transition-colors"
-            >
-              <ChevronLeft className="h-4 w-4" />
-              All Officials
-            </Link>
-          </div>
+      <div>
+        <div className="flex items-center gap-1.5 mb-4">
+          <Link
+            to="/government/elected-officials"
+            className="text-primary-600 hover:text-primary-800 flex items-center gap-1 text-xs font-bold tracking-widest uppercase transition-colors"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            All Officials
+          </Link>
+        </div>
+        <div className="center-content max-w-3xl mx-auto text-center mb-8">
           <Heading level={2}>Committees</Heading>
-          <p className="text-gray-500 mt-2">
+          <p className="text-gray-500 mt-2 text-sm">
             Active committees of the Sangguniang Bayan.
           </p>
         </div>
+      </div>
 
-        <div className="w-full md:w-72">
+      {/* 
+        Search Bar is hidden for now. To re-enable, 
+        uncomment the block below and the searchTerm state.
+      */}
+      {/* 
+      <div className="mt-6 flex justify-end">
+        <div className="w-full md:w-72 mb-2">
           <input
             type="text"
             value={searchTerm}
@@ -148,6 +155,7 @@ export default function MunicipalCommitteesPage() {
           />
         </div>
       </div>
+      */}
 
       {/* Rebuilt Empty State */}
       {filteredCommittees.length === 0 ? (

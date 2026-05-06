@@ -188,10 +188,13 @@ function CouncilMemberCard({ member }: { member: CouncilMember }) {
               {chairedCommittees.map(committee => (
                 <li
                   key={committee}
-                  className="bg-white flex items-start gap-2.5 rounded-lg border border-gray-100 px-3 py-2 shadow-sm"
+                  className="bg-white relative flex items-stretch gap-2.5 rounded-lg border border-gray-100 px-3 py-2 shadow-sm"
                 >
-                  <div className="bg-orange-500 mt-0.5 h-3.5 w-1.5 shrink-0 rounded-full" />
-                  <span className="text-gray-900 wrap-break-word text-xs font-bold leading-snug">
+                  <div
+                    className="absolute left-1 top-1 bottom-1 w-1.5 rounded-full bg-gradient-to-b from-pink-500 via-purple-500 to-blue-400"
+                    style={{ height: 'auto' }}
+                  />
+                  <span className="ml-3 text-gray-900 break-words text-xs font-bold leading-snug">
                     {toTitleCase(committee)}
                   </span>
                 </li>
@@ -275,19 +278,22 @@ export default function ElectedOfficials() {
             Government
           </Link>
         </div>
-        <Heading level={2}>Elected Officials</Heading>
-        <p className="text-gray-500 mt-2">
-          The elected leaders and legislative body of the Municipal Government.
-        </p>
+        <div className="center-content max-w-3xl mx-auto text-center">
+          <Heading level={2}>Elected Officials</Heading>
+          <p className="text-gray-500 mt-2 text-sm">
+            The elected leaders and legislative body of the Municipal
+            Government.
+          </p>
+        </div>
       </div>
 
       {/* ── SECTION 1: EXECUTIVE BRANCH ── */}
       <section>
-        <div className="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
-          <div className="bg-gray-100 p-2 rounded-lg">
-            <Landmark className="h-6 w-6 text-gray-500" />
-          </div>
-          <Heading level={3}>Executive Branch</Heading>
+        <div className="flex items-center gap-3 border-b border-gray-100 pb-4">
+          <Landmark className="h-4 w-4 text-blue-500" />
+          <p className="text-gray-500 text-[10px] font-bold tracking-widest uppercase">
+            Executive Branch
+          </p>
         </div>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 text-xs">
           {electedLeaders.map((leader, idx) => (
@@ -303,10 +309,10 @@ export default function ElectedOfficials() {
       {legislativeList.length > 0 && (
         <section>
           <div className="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
-            <div className="bg-gray-100 p-2 rounded-lg">
-              <UsersIcon className="h-6 w-6 text-gray-500" />
-            </div>
-            <Heading level={3}>Sangguniang Bayan</Heading>
+            <UsersIcon className="h-4 w-4 text-blue-500" />
+            <p className="text-gray-500 text-[10px] font-bold tracking-widest uppercase">
+              Sangguniang Bayan
+            </p>
           </div>
 
           <div className="grid grid-cols-1 gap-5 items-stretch md:grid-cols-2 xl:grid-cols-3">
