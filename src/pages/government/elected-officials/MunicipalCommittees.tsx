@@ -1,15 +1,10 @@
 import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { BookOpenIcon, ChevronLeft, User2, UsersIcon } from 'lucide-react';
+import { BookOpenIcon, User2, UsersIcon } from 'lucide-react';
 import yaml from 'js-yaml';
-
-// 1. Use the Kapwa Card you already have installed
 import { Card, CardContent } from '@bettergov/kapwa/card';
 import { Heading } from '../../../components/ui/Heading';
-
 import legislativeYaml from '../../../../content/government/elected-officials/legislative/index.yaml?raw';
 
-// 2. Bring back your inline title case function
 function toTitleCase(str: string) {
   return str.replace(
     /\w\S*/g,
@@ -17,7 +12,6 @@ function toTitleCase(str: string) {
   );
 }
 
-// --- Types ---
 interface LegislativeOfficial {
   name: string;
   position: string;
@@ -59,11 +53,7 @@ export default function MunicipalCommitteesPage() {
       if (official.committee_chair) {
         official.committee_chair.forEach(c => {
           if (!committeesMap.has(c)) {
-            committeesMap.set(c, {
-              committee: c,
-              chairperson: official.name,
-              members: [],
-            });
+            committeesMap.set(c, { committee: c, chairperson: official.name, members: [] });
           } else {
             committeesMap.get(c)!.chairperson = official.name;
           }
@@ -75,29 +65,17 @@ export default function MunicipalCommitteesPage() {
       if (official.committee_vice_chair) {
         official.committee_vice_chair.forEach(c => {
           if (!committeesMap.has(c)) {
-            committeesMap.set(c, {
-              committee: c,
-              chairperson: 'TBA',
-              members: [],
-            });
+            committeesMap.set(c, { committee: c, chairperson: 'TBA', members: [] });
           }
-          committeesMap
-            .get(c)!
-            .members!.push({ name: official.name, role: 'Vice Chairperson' });
+          committeesMap.get(c)!.members!.push({ name: official.name, role: 'Vice Chairperson' });
         });
       }
       if (official.committee_member) {
         official.committee_member.forEach(c => {
           if (!committeesMap.has(c)) {
-            committeesMap.set(c, {
-              committee: c,
-              chairperson: 'TBA',
-              members: [],
-            });
+            committeesMap.set(c, { committee: c, chairperson: 'TBA', members: [] });
           }
-          committeesMap
-            .get(c)!
-            .members!.push({ name: official.name, role: 'Member' });
+          committeesMap.get(c)!.members!.push({ name: official.name, role: 'Member' });
         });
       }
     });
@@ -120,18 +98,10 @@ export default function MunicipalCommitteesPage() {
 
   return (
     <div className="p-4 md:p-6">
-      {/* Rebuilt Page Hero & Search without missing components */}
+      {/* Header */}
       <div>
-        <div className="flex items-center gap-1.5 mb-4">
-          <Link
-            to="/government/elected-officials"
-            className="text-primary-600 hover:text-primary-800 flex items-center gap-1 text-xs font-bold tracking-widest uppercase transition-colors"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            All Officials
-          </Link>
-        </div>
-        <div className="center-content max-w-3xl mx-auto text-center mb-8">
+        {/* Back link — larger touch target on mobile */}
+        <div className="text-center mb-6 md:mb-8">
           <Heading level={2}>Committees</Heading>
           <p className="text-gray-500 mt-2 text-sm">
             Active committees of the Sangguniang Bayan.
@@ -139,54 +109,39 @@ export default function MunicipalCommitteesPage() {
         </div>
       </div>
 
-      {/* 
-        Search Bar is hidden for now. To re-enable, 
-        uncomment the block below and the searchTerm state.
-      */}
-      {/* 
-      <div className="mt-6 flex justify-end">
-        <div className="w-full md:w-72 mb-2">
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
-            placeholder="Search committees..."
-            className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
-          />
-        </div>
-      </div>
-      */}
-
-      {/* Rebuilt Empty State */}
+      {/* Empty state */}
       {filteredCommittees.length === 0 ? (
-        <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-gray-50 py-16 text-center">
+        <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-gray-50 py-16 text-center px-4">
           <div className="mb-4 rounded-full bg-gray-200 p-4 text-gray-500">
             <BookOpenIcon className="h-8 w-8" />
           </div>
-          <h3 className="text-lg font-bold text-gray-900">
-            No Committees Found
-          </h3>
+          <h3 className="text-lg font-bold text-gray-900">No Committees Found</h3>
           <p className="mt-1 text-sm text-gray-500">
             We couldn't find any committees matching "{searchTerm}".
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2 xl:grid-cols-3">
+        /*
+          Mobile  → 1 column (committee cards have dense content; 1-col is
+                    more readable on narrow screens than a cramped 2-col)
+          sm      → 2 columns
+          xl      → 3 columns
+        */
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 items-stretch gap-3 md:gap-4">
           {filteredCommittees.map((committee, index) => (
-            /* --- NEW GRADIENT HOVER WRAPPER --- */
             <div
               key={index}
-              className="group flex h-full flex-col rounded-xl bg-gray-200 p-[2px] shadow-sm transition-all duration-300 hover:bg-[linear-gradient(to_right,var(--color-medium-blue,#357CBB),var(--color-primary-magenta,#CE1877))] hover:shadow-xl hover:-translate-y-1.5 cursor-pointer"
+              className="group flex h-full flex-col rounded-xl bg-gray-200 p-[2px] shadow-sm transition-all duration-300 hover:bg-[linear-gradient(to_right,var(--color-medium-blue,#357CBB),var(--color-primary-magenta,#CE1877))] hover:shadow-xl hover:-translate-y-1 cursor-pointer"
             >
               <Card className="flex h-full flex-col bg-white border-transparent rounded-[10px]">
-                <CardContent className="flex h-full flex-col space-y-4 p-5">
-                  {/* Top Row: Icon & Title */}
+                <CardContent className="flex h-full flex-col space-y-3 p-4 md:p-5">
+                  {/* Icon + title */}
                   <div className="flex items-start gap-3">
                     <div className="bg-orange-50 text-orange-600 shrink-0 rounded-lg border border-orange-100 p-2 shadow-sm">
-                      <BookOpenIcon className="h-5 w-5" />
+                      <BookOpenIcon className="h-4 w-4 md:h-5 md:w-5" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-gray-900 text-base text-[12px] font-bold leading-tight">
+                      <h3 className="text-gray-900 text-[12px] font-bold leading-tight">
                         {toTitleCase(committee.committee)}
                       </h3>
                       <p className="text-gray-500 mt-1 text-[8px] font-bold tracking-widest uppercase">
@@ -195,10 +150,10 @@ export default function MunicipalCommitteesPage() {
                     </div>
                   </div>
 
-                  {/* Chairperson Highlight Box */}
-                  <div className="bg-gray-50 flex items-center gap-3 rounded-xl border border-gray-100 px-3 py-3">
+                  {/* Chairperson */}
+                  <div className="bg-gray-50 flex items-center gap-2 md:gap-3 rounded-xl border border-gray-100 px-3 py-2.5">
                     <div className="bg-white text-gray-400 shrink-0 rounded-full border border-gray-200 p-1.5 shadow-sm">
-                      <User2 className="h-4 w-4" />
+                      <User2 className="h-3.5 w-3.5 md:h-4 md:w-4" />
                     </div>
                     <div className="min-w-0">
                       <p className="text-gray-500 mb-0.5 text-[8px] font-bold tracking-tighter uppercase">
@@ -210,26 +165,23 @@ export default function MunicipalCommitteesPage() {
                     </div>
                   </div>
 
-                  {/* Member List */}
+                  {/* Members */}
                   {committee.members && committee.members.length > 0 && (
-                    <div className="border-t border-gray-100 pt-4 mt-auto">
-                      <div className="mb-3 flex items-center gap-1.5">
+                    <div className="border-t border-gray-100 pt-3 mt-auto">
+                      <div className="mb-2 flex items-center gap-1.5">
                         <UsersIcon className="text-orange-500 h-3 w-3" />
                         <p className="text-gray-500 text-[8px] font-bold tracking-widest uppercase">
                           Members ({committee.members.length})
                         </p>
                       </div>
-                      <div className="space-y-2.5">
+                      <div className="space-y-2">
                         {committee.members.map((member, i) => (
-                          <div
-                            key={i}
-                            className="flex items-center justify-between gap-2"
-                          >
+                          <div key={i} className="flex items-center justify-between gap-2">
                             <p className="text-gray-700 truncate text-[10px] font-medium">
                               {toTitleCase(member.name)}
                             </p>
                             {member.role && (
-                              <span className="text-gray-500 text-[8px] bg-gray-100 shrink-0 rounded px-1.5 py-0.5 text-[9px] font-bold uppercase">
+                              <span className="text-gray-500 bg-gray-100 shrink-0 rounded px-1.5 py-0.5 text-[9px] font-bold uppercase">
                                 {member.role}
                               </span>
                             )}
@@ -241,14 +193,13 @@ export default function MunicipalCommitteesPage() {
                 </CardContent>
               </Card>
             </div>
-            /* --- END WRAPPER --- */
           ))}
         </div>
       )}
 
-      {/* Summary footer */}
+      {/* Footer count */}
       {filteredCommittees.length > 0 && (
-        <p className="text-gray-400 mt-8 text-center text-xs">
+        <p className="text-gray-400 mt-6 md:mt-8 text-center text-xs">
           Showing {filteredCommittees.length} of {committees.length} committees
         </p>
       )}

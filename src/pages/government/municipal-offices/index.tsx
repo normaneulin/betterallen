@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Building2Icon, Phone, Globe, User2, ChevronLeft } from 'lucide-react';
+import { Building2Icon, Phone, Globe, User2 } from 'lucide-react';
 import yaml from 'js-yaml';
 import SEO from '../../../components/SEO';
 import { Heading } from '../../../components/ui/Heading';
 import Banner from '../../../components/ui/Banner';
 import { officeIcons } from '../../../lib/officeIcons';
+
+// Statically import the YAML file as raw text
+import municipalOfficesYaml from "../../../../content/government/municipal-offices/index.yaml?raw";
 
 interface Office {
   slug: string;
@@ -26,81 +27,41 @@ function formatGovName(name: string) {
   return name.replace(/MUNICIPAL |LOCAL |DEPARTMENT OF /gi, '').trim();
 }
 
+// Parse and sort the data statically outside the component cycle
+let parsedOffices: Office[] = [];
+try {
+  const parsed = yaml.load(municipalOfficesYaml);
+  parsedOffices = Array.isArray(parsed) ? parsed : [];
+} catch (e) {
+  console.warn("Failed to parse municipal offices YAML", e);
+}
+
+const sortedOffices = parsedOffices.sort((a, b) =>
+  formatGovName(a.office_name).localeCompare(formatGovName(b.office_name))
+);
+
 export default function MunicipalOffices() {
-  const [offices, setOffices] = useState<Office[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [search, setSearch] = useState('');
-
-  useEffect(() => {
-    async function fetchData() {
-      setLoading(true);
-      setError(null);
-      try {
-        const resp = await fetch('/content/government/municipal-offices/index.yaml');
-        const text = await resp.text();
-        const parsed = yaml.load(text);
-        setOffices(Array.isArray(parsed) ? parsed : []);
-      } catch {
-        setError('Failed to load offices data');
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchData();
-  }, []);
-
-  const filtered = useMemo(() => {
-    return offices
-      .filter(
-        o =>
-          o.office_name &&
-          o.office_name.toLowerCase().includes(search.toLowerCase())
-      )
-      .sort((a, b) => formatGovName(a.office_name).localeCompare(formatGovName(b.office_name)));
-  }, [offices, search]);
-
   return (
     <div className="p-4 md:p-6 space-y-12 max-w-7xl mx-auto">
       <SEO title="Municipal Offices" description="Directory of municipal offices." />
-      <div>
-        <div className="flex items-center gap-1.5 mb-4">
-          <Link
-            to="/government"
-            className="text-primary-600 hover:text-primary-800 flex items-center gap-1 text-xs font-bold tracking-widest uppercase transition-colors"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            Government
-          </Link>
-        </div>
-        <div className="center-content max-w-3xl mx-auto text-center">
-          <Heading level={2}>Municipal Offices</Heading>
-          <p className="text-gray-500 mt-2 text-sm">
-            Directory of local government offices and departments.
-          </p>
-        </div>
+      <div className="center-content max-w-3xl mx-auto text-center">
+        <Heading level={2}>Municipal Offices</Heading>
+        <p className="text-gray-500 mt-2 text-sm">
+          Directory of local government offices and departments.
+        </p>
       </div>
 
       <div className="mb-8 flex flex-col md:flex-row md:items-center gap-4">
-        <input
-          type="text"
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          placeholder="Search offices..."
-          className="w-full md:w-72 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-200"
-        />
-        <span className="text-xs text-gray-500 font-bold tracking-widest uppercase">{filtered.length} active offices</span>
+        <span className="text-xs text-gray-500 font-bold tracking-widest uppercase">
+          {sortedOffices.length} active offices
+        </span>
       </div>
 
-      {loading ? (
-        <Banner type="info" description="Loading offices..." />
-      ) : error ? (
-        <Banner type="error" description={error} />
-      ) : filtered.length === 0 ? (
+      {sortedOffices.length === 0 ? (
         <Banner type="info" description="No municipal office data available." />
       ) : (
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {filtered.map((office, i) => {
+          {sortedOffices.map((office, i) => {
             const Icon = officeIcons[office.slug] || Building2Icon;
             return (
               <div
@@ -163,9 +124,6 @@ export default function MunicipalOffices() {
                         <Globe className="h-3.5 w-3.5" />
                       </a>
                     )}
-                    <span className="text-primary-600 text-[10px] font-black tracking-tighter uppercase opacity-0 transition-opacity group-hover:opacity-100">
-                      View Profile
-                    </span>
                   </div>
                 </div>
               </div>

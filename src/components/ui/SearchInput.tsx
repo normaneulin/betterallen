@@ -23,7 +23,7 @@ const SearchInput = ({
   onChangeValue,
   className,
   placeholder = 'Search...',
-  icon = <SearchIcon className='text-kapwa-text-disabled h-4 w-4' />,
+  icon = <SearchIcon className='text-[8px] text-kapwa-text-disabled h-4 w-4' />,
   size = 'md',
   clearable = true,
   ...props

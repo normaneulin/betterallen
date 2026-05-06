@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { MapPinIcon } from 'lucide-react';
 import yaml from 'js-yaml';
 
@@ -46,9 +46,9 @@ export default function BarangaysSidebar() {
       {sorted.map(brgy => {
         const isActive = location.pathname.endsWith(brgy.slug);
         return (
-          <Link
+          <div
             key={brgy.slug}
-            to={`/government/barangays/${brgy.slug}`}
+            // to={`/government/barangays/${brgy.slug}`}
             className="block"
           >
             <SidebarItem
@@ -56,7 +56,7 @@ export default function BarangaysSidebar() {
               icon={MapPinIcon}
               isActive={isActive}
             />
-          </Link>
+          </div>
         );
       })}
     </SidebarContainer>
